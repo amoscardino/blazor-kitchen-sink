@@ -1,0 +1,67 @@
+@page "/things/{Id}"
+
+<h1>Thing!</h1>
+
+<EditForm Model="Thing" OnValidSubmit="SaveThingAsync" class="card">
+    <DataAnnotationsValidator />
+
+    <div class="card-body">
+        @if (Thing.ThingId != null)
+        {
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="ID">ID</label>
+                        <InputText @bind-Value="Thing.ThingId" id="ID" class="form-control" disabled />
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label for="CreatedDate">Created Date</label>
+                        <InputDate @bind-Value="Thing.CreatedDate" id="CreatedDate" class="form-control" disabled />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            <label for="Name">Name*</label>
+            <InputText @bind-Value="Thing.Name" id="Name" class="form-control" />
+            <div class="text-danger">
+                <ValidationMessage For="() => Thing.Name" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <InputTextArea @bind-Value="Thing.Description" id="Description" class="form-control" />
+            <div class="text-danger">
+                <ValidationMessage For="() => Thing.Description" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="custom-control custom-checkbox">
+                <InputCheckbox @bind-Value="Thing.IsActive" class="custom-control-input" id="IsActive" />
+                <label class="custom-control-label" for="IsActive">Is Active</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Email">Email Address</label>
+            <InputText @bind-Value="Thing.EmailAddress" id="Email" class="form-control" />
+            <div class="text-danger">
+                <ValidationMessage For="() => Thing.EmailAddress" />
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Save
+        </button>
+
+        <NavLink href="things" class="btn btn-secondary">
+            Back
+        </NavLink>
+    </div>
+</EditForm>

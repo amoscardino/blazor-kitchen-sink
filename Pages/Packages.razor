@@ -1,0 +1,44 @@
+﻿@page "/packages"
+
+<h1>NuGet Packages</h1>
+
+<p>
+    This page uses the NuGet package <code>MarkdownSharp</code>.
+</p>
+
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="Text">
+                Markdown
+            </label>
+
+            <textarea id="Text" class="form-control" rows="10" @bind="Text"></textarea>
+        </div>
+
+        <button class="btn btn-primary" @onclick="UpdateHtml">
+            Render!
+        </button>
+    </div>
+
+    <div class="col">
+        <label>
+            Rendered Html
+        </label>
+
+        <div class="card">
+            <div class="card-body">
+                @if (string.IsNullOrWhiteSpace(Html))
+                {
+                    <p class="text-center text-muted">
+                        Nothing here yet...
+                    </p>
+                }
+                else
+                {
+                    @((MarkupString)Html)
+                }
+            </div>
+        </div>
+    </div>
+</div>

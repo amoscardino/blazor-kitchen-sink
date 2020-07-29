@@ -1,0 +1,15 @@
+﻿@page "/fetch"
+
+<h1>Fetch Data</h1>
+
+@if (Posts == null)
+{
+    <p class="text-muted">Loading...</p>
+}
+else
+{
+    foreach (var post in Posts)
+    {
+        <Post Model="post" @key="post.Id" />
+    }
+}

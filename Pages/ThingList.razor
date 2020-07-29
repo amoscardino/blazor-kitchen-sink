@@ -1,0 +1,36 @@
+@page "/things"
+
+<h1>Things!</h1>
+
+@if (Things != null)
+{
+    <table class="table border bg-white">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <td class="text-right">
+                    <NavLink href="things/new">
+                        New
+                    </NavLink>
+                </td>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var thing in Things)
+            {
+                var url = $"things/{thing.ThingId}";
+                var cellClass = thing.IsActive ? "" : "font-italic font-weight-lighter text-muted";
+
+                <tr @key="thing.ThingId">
+                    <td class="@cellClass">@thing.Name</td>
+                    <td class="text-right">
+                        <NavLink href="@url">
+                            Edit
+                        </NavLink>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
