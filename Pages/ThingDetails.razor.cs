@@ -31,5 +31,12 @@ namespace BlazorKitchenSink.Pages
             else
                 await ThingsData.UpdateThingAsync(Thing);
         }
+
+        private async Task DeleteThingAsync()
+        {
+            await ThingsData.DeleteThingAsync(Thing.ThingId);
+
+            NavigationManager.NavigateTo("things");
+        }
     }
 }
