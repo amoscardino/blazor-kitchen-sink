@@ -10,6 +10,8 @@ else
 {
     foreach (var post in Posts)
     {
-        <Post Model="post" @key="post.Id" />
+        var id = post.Id;
+
+        <Post Model="post" @key="id" />
     }
 }

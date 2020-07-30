@@ -13,8 +13,7 @@ namespace BlazorKitchenSink.Pages
         private const string POST_URL = "https://moscardino-cors.azurewebsites.net/api/proxy?url=https://moscardino.net/posts.json";
         private List<Post> Posts;
 
-        [Inject]
-        public HttpClient Http { get; set; }
+        [Inject] public HttpClient Http { get; set; }
 
         protected override async Task OnInitializedAsync()
         {

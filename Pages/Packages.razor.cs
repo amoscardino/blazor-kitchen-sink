@@ -11,11 +11,10 @@ namespace BlazorKitchenSink.Pages
 {
     public partial class Packages
     {
-        [Inject]
-        public Markdown Markdown { get; set; }
-
         private string Text;
         private string Html;
+
+        [Inject] public Markdown Markdown { get; set; }
 
         private void UpdateHtml()
         {

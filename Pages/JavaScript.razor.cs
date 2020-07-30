@@ -11,12 +11,10 @@ namespace BlazorKitchenSink.Pages
 {
     public partial class JavaScript
     {
-        [Inject]
-        public IJSRuntime JSRuntime { get; set; }
-
         private string Message;
 
-        public async Task ShowMessageAsync()
-            => await JSRuntime.InvokeVoidAsync("showMessage", Message ?? string.Empty);
+        [Inject] public IJSRuntime JSRuntime { get; set; }
+
+        public async Task ShowMessageAsync() => await JSRuntime.InvokeVoidAsync("showMessage", Message ?? string.Empty);
     }
 }
