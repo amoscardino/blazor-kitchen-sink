@@ -50,7 +50,7 @@
 
         <div class="form-group">
             <label for="Email">Email Address</label>
-            <InputText @bind-Value="Thing.EmailAddress" id="Email" class="form-control" />
+            <InputText @bind-Value="Thing.EmailAddress" type="email" id="Email" class="form-control" />
             <div class="text-danger">
                 <ValidationMessage For="() => Thing.EmailAddress" />
             </div>
@@ -65,9 +65,12 @@
                 Back
             </NavLink>
 
-            <button type="button" class="btn btn-danger ml-auto" @onclick="DeleteThingAsync">
-                Delete
-            </button>
+            @if (Thing.ThingId != null)
+            {
+                <button type="button" class="btn btn-danger ml-auto" @onclick="DeleteThingAsync">
+                    Delete
+                </button>
+            }
         </div>
     </div>
 </EditForm>

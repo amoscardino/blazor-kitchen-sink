@@ -18,9 +18,6 @@ namespace BlazorKitchenSink.Pages
         protected override async Task OnInitializedAsync()
         {
             Posts = await Http.GetFromJsonAsync<List<Post>>(POST_URL);
-
-            for (int i = 0; i < Posts.Count; i++)
-                Posts[i].Id = i;
         }
     }
 }

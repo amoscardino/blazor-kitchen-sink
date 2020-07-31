@@ -11,7 +11,6 @@ namespace BlazorKitchenSink.Pages
     {
         private List<Thing> Things;
 
-        [Inject] public NavigationManager NavigationManager { get; set; }
         [Inject] public ThingsData ThingsData { get; set; }
 
         protected override async Task OnInitializedAsync()
@@ -23,7 +22,5 @@ namespace BlazorKitchenSink.Pages
                 .ThenBy(thing => thing.Name)
                 .ToList();
         }
-
-        private void GoToThing(string id) => NavigationManager.NavigateTo($"/things/{id}");
     }
 }
