@@ -11,6 +11,8 @@ namespace BlazorKitchenSink.Models
     {
         public string ThingId { get; set; }
 
+        public DateTime CreatedDate { get; set; }
+
         [Required]
         [MaxLength(50, ErrorMessage = "The Name field must be under 50 characters.")]
         public string Name { get; set; }
@@ -19,8 +21,6 @@ namespace BlazorKitchenSink.Models
         public string Description { get; set; }
 
         public bool IsActive { get; set; }
-
-        public DateTime CreatedDate { get; set; }
 
         [EmailAddress, DataType(DataType.EmailAddress)]
         public string EmailAddress { get; set; }

@@ -10,6 +10,7 @@ namespace BlazorKitchenSink.Pages
 
         [Inject] public IJSRuntime JSRuntime { get; set; }
 
-        public async Task ShowMessageAsync() => await JSRuntime.InvokeVoidAsync("showMessage", Message ?? string.Empty);
+        public async Task ShowMessageAsync()
+            => await JSRuntime.InvokeVoidAsync("showMessage", Message ?? string.Empty);
     }
 }
